@@ -11,7 +11,7 @@
     * **Real-time Health Reports**: Display health stats (calories, distance, speed, etc.) for riders post-ride.
     * **Health Goals**: Let riders set personal health goals, which the app will track and suggest personalized ride plans.
 
----
+
 
 ## 2. Technologies
 ### 2.1 Backend
@@ -35,21 +35,21 @@
 * `Nginx`: For load balancing and reverse proxying.
 * `GitHub Actions`: Implement continuous integration and deployment. 
 
----
+
 
 ## 3. Comparison with Alternatives
 * **Smart Health Recommendations**: While many bicycle-sharing platforms focus only on renting, this app adds unique value by integrating fitness tracking and personalized health recommendations.
 * **Route Optimization with AI**: Leverage AI to calculate optimal routes for riders based on traffic data and rider health goals.
 * **Dynamic Pricing**: This can provide a competitive edge by incentivizing off-peak usage or high-demand stations.
 
----
+
 
 ## 4. Business Values
 * **Health-conscious Urban Commuters**: Encourages more people in Dhaka to adopt cycling as an affordable and healthy commuting option.
 * **Environmental Impact**: Promotes green transportation in a congested city.
 * **Scalable Business Model**: The platform can later integrate electric bikes or scooters, expanding the business model.
 
----
+
 
 ## **5. Functional Requirements**
 
@@ -115,7 +115,7 @@
     - Users receive notifications for booking confirmations, ride completion, fare, etc.
     - Push notifications for important alerts (e.g., delayed ride, additional charges).
 
----
+
 
 ## **6. Non-Functional Requirements**
 
