@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -29,6 +28,9 @@ public abstract class User {
     private String phoneNumber;
 
     @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
     private Date dateOfBirth;
 
     @Column(nullable = false)
@@ -36,13 +38,21 @@ public abstract class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private RoleType role;
+    private Role role;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles;
+    public User(String username,
+                String password,
+                String phoneNumber,
+                String email,
+                Date dateOfBirth,
+                Date dateOfRegistration,
+                Role role) {
+        this.username = username;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.dateOfRegistration = dateOfRegistration;
+        this.role = role;
+    }
 }
