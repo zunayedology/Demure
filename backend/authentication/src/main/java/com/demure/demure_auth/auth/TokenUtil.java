@@ -1,32 +1,37 @@
-package com.demure.demure_auth.utility;
+package com.demure.demure_auth.auth;
 
 import com.demure.demure_auth.entity.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.Optional;
 
 @Component
 public class TokenUtil {
-    private final String jwtSecret = "^X@=d$~Kz%g3!o";
-    private final Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
+    private final Key key;
+    private final long jwtExpiration;
 
-    // Generate JWT token
-    public String generateToken(@NotNull User user) {
-        long jwtExpiration = 86400000L; // 24 hours
-        return Jwts.builder()
-                .setSubject(user.getUsername())
+    public TokenUtil(@Value("${jwt.secret}") String jwtSecret,
+                     @Value("${jwt.expiration}") long jwtExpiration) {
+        this.key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
+        this.jwtExpiration = jwtExpiration;
+    }
+
+    public String generateToken(@NotNull Optional<User> user) {
+        return user.map(value -> Jwts.builder()
+                .setSubject(value.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + jwtExpiration))
                 .signWith(key, SignatureAlgorithm.HS512)
-                .compact();
+                .compact()).orElse(null);
     }
 
-    // Validate JWT token
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
@@ -39,7 +44,6 @@ public class TokenUtil {
         }
     }
 
-    // Get username from JWT token
     public String getUsernameFromToken(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(key)

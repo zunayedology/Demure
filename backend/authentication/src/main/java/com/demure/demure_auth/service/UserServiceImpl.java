@@ -1,14 +1,16 @@
 package com.demure.demure_auth.service;
 
 import com.demure.demure_auth.dto.UserDto;
+import com.demure.demure_auth.entity.Rider;
 import com.demure.demure_auth.entity.User;
 import com.demure.demure_auth.utility.UserMapper;
 import com.demure.demure_auth.repository.UserRepository;
-import com.demure.demure_auth.utility.TokenUtil;
+import com.demure.demure_auth.auth.TokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -22,19 +24,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto registerUser(UserDto userDto) {
         User user = userMapper.toUser(userDto);
+        user.setDateOfRegistration(new Date());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         userRepository.save(user);
         return userMapper.toUserDto(user);
     }
 
-    @Override
-    public String authenticate(String username, String password) {
-        Optional<User> userOptional = userRepository.findByUsername(username);
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
-            if (passwordEncoder.matches(password, user.getPassword())) {
-                return tokenUtil.generateToken(user);
-            }
+   public String authenticate(String username, String password) {
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isPresent() && passwordEncoder.matches(password, user.get().getPassword())) {
+            return tokenUtil.generateToken(user);
         }
         return null;
     }
@@ -43,5 +42,10 @@ public class UserServiceImpl implements UserService {
     public UserDto getUserById(Long userId) {
         Optional<User> userOptional = userRepository.findById(userId);
         return userOptional.map(userMapper::toUserDto).orElse(null);
+    }
+
+    @Override
+    public UserDto getCurrentUser() {
+        return getUserById(1L);
     }
 }

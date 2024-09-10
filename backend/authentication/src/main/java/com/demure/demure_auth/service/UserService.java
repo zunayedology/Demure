@@ -6,4 +6,5 @@ public interface UserService {
     UserDto registerUser(UserDto userDto);
     String authenticate(String username, String password);
     UserDto getUserById(Long userId);
+    UserDto getCurrentUser();
 }

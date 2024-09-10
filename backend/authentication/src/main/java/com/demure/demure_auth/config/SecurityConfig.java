@@ -1,7 +1,7 @@
 package com.demure.demure_auth.config;
 
 import com.demure.demure_auth.service.UserDetailsServiceImpl;
-import com.demure.demure_auth.utility.JwtTokenFilter;
+import com.demure.demure_auth.auth.JwtTokenFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

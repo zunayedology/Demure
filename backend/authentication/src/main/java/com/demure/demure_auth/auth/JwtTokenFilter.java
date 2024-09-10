@@ -1,4 +1,4 @@
-package com.demure.demure_auth.utility;
+package com.demure.demure_auth.auth;
 
 import com.demure.demure_auth.service.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
