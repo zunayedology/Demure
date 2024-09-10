@@ -1,5 +1,6 @@
+<p align="center"><img src="shared/demure.png" style="width: 100%;" /> </p>
+
 # Demure: Bicycle Rental System
-<p align="center"><img src="shared/demure.png" /> </p>
 
 ## 1. Core Features
 * ### 1.1 Bicycle Rental System
