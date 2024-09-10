@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package booking;
+
+option go_package = "./proto";
+
+service BookingService {
+  rpc BookBicycle (BookingRequest) returns (BookingResponse);
+}
+
+message BookingRequest {
+  string user_id = 1;
+  string station_id = 2;
+}
+
+message BookingResponse {
+  string booking_id = 1;
+  string message = 2;
+}
