@@ -26,7 +26,7 @@
 * `Vercel`: For hosting the frontend.
 ### 2.3 Database
 * `Neo4j` + `GraphQL`: Graph database for geospatial data and routing.
-* `PostgreSQL` + `Prisma`: Relational database for user profiles, ride history, transactions, etc.
+* `PostgreSQL` + `Prisma` | `GORM`: Relational database for user profiles, ride history, transactions, etc.
 * `Redis`: Caching System for reducing load on main databases.
 ### 2.4 Machine Learning
 * `Scikit-Learn (KNN)`: For optimized route predictions.
@@ -105,7 +105,7 @@
     - The system calculates the fare based on distance, time, and additional charges if applicable.
     - Users are notified of the total charge and can confirm payment.
   
-### **5.8 Station Management (Admin/Station Master)**
+### **5.8 Station Management (Admin/Guard)**
 - **Description**: Admins and station masters must be able to manage station operations and bicycle maintenance.
   - **Requirements**:
     - Admins can monitor the performance of stations (available docks, bicycles, staff).
