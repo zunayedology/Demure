@@ -10,10 +10,16 @@ service BookingService {
 
 message BookingRequest {
   string user_id = 1;
-  string station_id = 2;
+  string start_station_id = 2;
+  string end_station_id = 3;
+  string start_time = 4;
+  string end_time = 5;
+  string bicycle_id = 6;
+  string booking_id = 7;
 }
 
 message BookingResponse {
   string booking_id = 1;
   string message = 2;
+  string error = 3;
 }
