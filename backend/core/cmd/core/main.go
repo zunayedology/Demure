@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/zunayedology/Demure/backend/core/internal/pkg/config"
+	"github.com/zunayedology/Demure/backend/core/internal/pkg/models"
 	"github.com/zunayedology/Demure/backend/core/internal/pkg/service"
 	"github.com/zunayedology/Demure/backend/core/proto"
 	"google.golang.org/grpc"
@@ -11,6 +13,16 @@ import (
 )
 
 func main() {
+	// Connect to Postgres
+	db := config.ConnectPostgres()
+
+	// Migrate the Booking model
+	err := db.AutoMigrate(&models.Booking{})
+	if err != nil {
+		log.Fatalf("failed to migrate database: %v", err)
+	}
+	fmt.Println("Database migrated successfully!")
+
 	// Start the gRPC server
 	go startGRPCServer()
 
