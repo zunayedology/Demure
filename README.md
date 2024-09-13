@@ -1,4 +1,4 @@
-<p align="center"><img src="shared/demure.png" style="width: 100%;" /> </p>
+<p align="center"><img src="global/demure.png" style="width: 100%;" /> </p>
 
 <h1 align="center">Demure: Bicycle Rental System</h1>
 
