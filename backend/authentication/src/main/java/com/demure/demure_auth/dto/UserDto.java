@@ -15,10 +15,7 @@ import java.util.Date;
 public class UserDto {
     private Long userId;
     private String username;
-    private String phoneNumber;
     private String email;
     private String password;
-    private Date dateOfBirth;
-    private Date dateOfRegistration;
     private Role role;
 }

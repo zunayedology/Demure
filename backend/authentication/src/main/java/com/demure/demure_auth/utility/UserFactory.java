@@ -9,8 +9,6 @@ public class UserFactory {
     public User createUser(@NotNull Role role) {
         return switch (role) {
             case ADMIN -> new Admin();
-            case RIDER -> new Rider();
-            case GUARD -> new Guard();
-        };
+            case RIDER -> new Rider();};
     }
 }

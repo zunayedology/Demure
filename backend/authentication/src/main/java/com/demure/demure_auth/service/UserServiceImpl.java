@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -23,7 +22,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto registerUser(UserDto userDto) {
         User user = userMapper.toUser(userDto);
-        user.setDateOfRegistration(new Date());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         userRepository.save(user);
         return userMapper.toUserDto(user);

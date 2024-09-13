@@ -17,11 +17,8 @@ public class UserMapper {
         return new UserDto(
                 user.getId(),
                 user.getUsername(),
-                user.getPhoneNumber(),
                 user.getEmail(),
                 user.getPassword(),
-                user.getDateOfBirth(),
-                user.getDateOfRegistration(),
                 user.getRole()
         );
     }
@@ -30,11 +27,8 @@ public class UserMapper {
         User user = userFactory.createUser(userDto.getRole());
         user.setId(userDto.getUserId());
         user.setUsername(userDto.getUsername());
-        user.setPhoneNumber(userDto.getPhoneNumber());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
-        user.setDateOfBirth(userDto.getDateOfBirth());
-        user.setDateOfRegistration(userDto.getDateOfRegistration());
         user.setRole(userDto.getRole());
         return user;
     }

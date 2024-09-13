@@ -3,7 +3,6 @@ package com.demure.demure_auth.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -25,16 +24,7 @@ public abstract class User {
     private String password;
 
     @Column(nullable = false)
-    private String phoneNumber;
-
-    @Column(nullable = false)
     private String email;
-
-    @Column(nullable = false)
-    private Date dateOfBirth;
-
-    @Column(nullable = false)
-    private Date dateOfRegistration;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -42,17 +32,11 @@ public abstract class User {
 
     public User(String username,
                 String password,
-                String phoneNumber,
                 String email,
-                Date dateOfBirth,
-                Date dateOfRegistration,
                 Role role) {
         this.username = username;
         this.password = password;
-        this.phoneNumber = phoneNumber;
         this.email = email;
-        this.dateOfBirth = dateOfBirth;
-        this.dateOfRegistration = dateOfRegistration;
         this.role = role;
     }
 }
