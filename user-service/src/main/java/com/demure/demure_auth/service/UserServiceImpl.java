@@ -1,6 +1,6 @@
 package com.demure.demure_auth.service;
 
-import com.demure.demure_auth.dto.UserDto;
+import com.demure.demure_auth.entity.UserDto;
 import com.demure.demure_auth.entity.User;
 import com.demure.demure_auth.utility.UserMapper;
 import com.demure.demure_auth.repository.UserRepository;
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto registerUser(UserDto userDto) {
         User user = userMapper.toUser(userDto);
-        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setPassword(passwordEncoder.encode(userDto.password()));
         userRepository.save(user);
         return userMapper.toUserDto(user);
     }

@@ -1,7 +1,7 @@
 package com.demure.demure_auth.controller;
 
 import com.demure.demure_auth.auth.TokenUtil;
-import com.demure.demure_auth.dto.UserDto;
+import com.demure.demure_auth.entity.UserDto;
 import com.demure.demure_auth.service.LogoutService;
 import com.demure.demure_auth.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,7 +25,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<String> authenticate(@RequestBody UserDto userDto) {
-        String token = userService.authenticate(userDto.getUsername(), userDto.getPassword());
+        String token = userService.authenticate(userDto.username(), userDto.password());
         if (token == null) {
             return ResponseEntity.badRequest().build();
         } else {

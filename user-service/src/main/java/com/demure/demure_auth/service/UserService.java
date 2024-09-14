@@ -1,6 +1,6 @@
 package com.demure.demure_auth.service;
 
-import com.demure.demure_auth.dto.UserDto;
+import com.demure.demure_auth.entity.UserDto;
 
 public interface UserService {
     UserDto registerUser(UserDto userDto);
