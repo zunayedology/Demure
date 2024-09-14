@@ -47,8 +47,8 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Token is missing");
         }
 
-        long expirationTime = tokenUtil.getExpirationTimeFromToken(token); // Get the remaining time before the token expires
-        logoutService.blacklistToken(token, expirationTime); // Add token to Redis blacklist
+        long expirationTime = tokenUtil.getExpirationTimeFromToken(token);
+        logoutService.blacklistToken(token, expirationTime);
 
         return ResponseEntity.ok("Successfully logged out");
     }
