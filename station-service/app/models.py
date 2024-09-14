@@ -1,10 +1,33 @@
-from django.db import models
+from neomodel import (
+    StructuredNode,
+    StringProperty,
+    IntegerProperty,
+    FloatProperty,
+    UniqueIdProperty,
+    RelationshipTo,
+    RelationshipFrom,
+    DateTimeProperty,
+)
 
-class Station(models.Model):
-    station_id = models.CharField(max_length=100, unique=True, primary_key=True)
-    station_name = models.CharField(max_length=100)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
+class Bicycle(StructuredNode):
+    uid = UniqueIdProperty()
+    bicycle_id = StringProperty(unique_index=True)
+    type = StringProperty(choices={'mountain', 'cruiser'}, default='mountain')
+    status = StringProperty(choices={'available', 'reserved', 'in_use'}, default='available')
+    dock = RelationshipFrom('Dock', 'PARKED_AT')
 
-    class Meta:
-        abstract = True
+class Dock(StructuredNode):
+    uid = UniqueIdProperty()
+    dock_number = IntegerProperty()
+    status = StringProperty(choices={'available', 'occupied'}, default='available')
+    station = RelationshipFrom('Station', 'HAS_DOCK')
+    bicycle = RelationshipTo(Bicycle, 'PARKED_AT')
+
+class Station(StructuredNode):
+    uid = UniqueIdProperty()
+    name = StringProperty(unique_index=True)
+    latitude = FloatProperty()
+    longitude = FloatProperty()
+    address = StringProperty()
+    created_at = DateTimeProperty(default_now=True)
+    docks = RelationshipTo(Dock, 'HAS_DOCK')
