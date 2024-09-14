@@ -6,6 +6,7 @@ import com.demure.demure_auth.utility.UserMapper;
 import com.demure.demure_auth.repository.UserRepository;
 import com.demure.demure_auth.auth.TokenUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
    public String authenticate(String username, String password) {
         Optional<User> user = userRepository.findByUsername(username);
         if (user.isPresent() && passwordEncoder.matches(password, user.get().getPassword())) {
-            return tokenUtil.generateToken(user);
+            return tokenUtil.generateToken(String.valueOf(user));
         }
         return null;
     }
@@ -43,6 +44,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getCurrentUser() {
-        return getUserById(1L);
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        return userMapper.toUserDto(user);
     }
 }

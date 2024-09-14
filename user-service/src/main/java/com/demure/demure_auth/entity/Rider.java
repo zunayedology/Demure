@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -18,10 +18,10 @@ public class Rider extends User{
     private String phoneNumber;
 
     @Column(nullable = false)
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Column(nullable = false)
-    private Date dateOfRegistration;
+    private LocalDate dateOfRegistration;
 
     @Column(nullable = false)
     private Integer age;
