@@ -71,5 +71,3 @@
 5. **Maintainability**:
    - Modular and loosely coupled services that can be independently developed, tested, and deployed.
    - Each service adheres to **best coding practices**, with **well-documented APIs**.
-
-This structured, microservice-driven approach ensures that "Demure" is robust, secure, and scalable, ready to meet both functional and non-functional requirements efficiently.
