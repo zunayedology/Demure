@@ -1,4 +1,6 @@
-import { gql } from 'apollo-server';
+// GraphQL Type Definitions
+
+import { gql } from "apollo-server";
 
 export const typeDefs = gql`
   type Station {
@@ -15,8 +17,19 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-    createStation(name: String!, latitude: Float!, longitude: Float!, address: String!): Station
-    updateStation(id: ID!, name: String, latitude: Float, longitude: Float, address: String): Station
+    createStation(
+      name: String!
+      latitude: Float!
+      longitude: Float!
+      address: String!
+    ): Station
+    updateStation(
+      id: ID!
+      name: String
+      latitude: Float
+      longitude: Float
+      address: String
+    ): Station
     deleteStation(id: ID!): String
   }
 `;
