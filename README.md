@@ -9,24 +9,25 @@
 ### Technologies Used
 
 - **Back-End Microservices**:  
-  - **User Management Service**: Java with Spring Boot, PostgreSQL, JWT, Bcrypt
-  - **Ride Management Service**: Go, Redis, Kafka
-  - **Station Management Service**: Python with Django, Neo4j, GraphQL
-  - **Health & Analytics Service**: TypeScript with Node.js, TimescaleDB, Python (for ML)
-  - **Billing Service**: JavaScript with NestJS, MySQL, Stripe API
-  - **Notification Service**: Python with FastAPI, Kafka, Firebase
+  - **User Management Service**: `Java` with `Spring Boot`, `PostgreSQL`, `JWT`, `Bcrypt`, `Redis`
+  - **Ride Management Service**: `Go`, `Redis`, `Kafka`
+  - **Station Management Service**: `TypeScript` with `Node` and `Express`, `Neo4j` with `AuraDB`, `GraphQL` with `Apollo Server`
+  - **Health & Analytics Service**: `Python` with `FastAPI`, `PostgreSQL` with `TimescaleDB`
+  - **Billing Service**: `JavaScript` with `Nest`, `MySQL`, `Stripe API`
+  - **Notification Service**: `Python` with `FastAPI`, `Kafka`, `Firebase`
   
 - **Front-End**:
-  - **React** or **Next.js** (for user interface)
-  - **TypeScript** (for typing and error reduction)
-  - **Redux** or **Zustand** (for state management)
+  - `React` (for user interface)
+  - `TypeScript` (for typing and error reduction)
+  - `Redux` (for state management)
 
-- **API Gateway**: Nginx or Kong
-- **Service Communication**: gRPC (internal), HTTP/REST (external)
-- **Containerization**: Docker
-- **CI/CD**: GitHub Actions, Jenkins, or CircleCI
-- **Monitoring**: Prometheus, Grafana
-- **Logging**: ELK Stack (Elasticsearch, Logstash, Kibana)
+- **API Gateway**: `Nginx`
+- **Service Communication**: `gRPC` (internal), `REST` (external)
+- **Machine Learning**: `Scikit-Learn`, `Statesmodels`, `MLxtend`
+- **Containerization**: `Docker`
+- **CI/CD**: `GitHub Actions`, `Jenkins`
+- **Monitoring**: `Prometheus`, `Grafana`
+- **Logging**: `Elasticsearch`, `Logstash`, `Kibana` (ELK Stack)
 
 ### Functional Requirements
 1. **User Roles**:
