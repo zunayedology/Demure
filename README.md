@@ -9,12 +9,12 @@
 ### Technologies Used
 
 - **Back-End Microservices**:  
-  - **User Management Service**: `Java` with `Spring Boot`, `PostgreSQL`, `JWT`, `Bcrypt`, `Redis`
+  - **User Management Service**: `Java`, `Spring Boot`, `PostgreSQL`, `JWT`, `Bcrypt`, `Redis`
   - **Ride Management Service**: `Go`, `Redis`, `Kafka`
-  - **Station Management Service**: `TypeScript` with `Node` and `Express`, `Neo4j` with `AuraDB`, `GraphQL` with `Apollo Server`
-  - **Health & Analytics Service**: `Python` with `FastAPI`, `PostgreSQL` with `TimescaleDB`
-  - **Billing Service**: `JavaScript` with `Nest`, `MySQL`, `Stripe API`
-  - **Notification Service**: `Python` with `FastAPI`, `Kafka`, `Firebase`
+  - **Station Management Service**: `TypeScript`, `Node`, `Express`, `Neo4j`, `AuraDB`, `GraphQL`, `Apollo`
+  - **Health & Analytics Service**: `Python`, `FastAPI`, `PostgreSQL`, `TimescaleDB`
+  - **Billing Service**: `JavaScript`, `Nest`, `MySQL`, `Stripe API`
+  - **Notification Service**: `Python`, `FastAPI`, `Kafka`, `Firebase`
   
 - **Front-End**:
   - `React` (for user interface)
