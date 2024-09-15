@@ -1,6 +1,6 @@
 package com.demure.demure_auth.utility;
 
-import com.demure.demure_auth.entity.UserDto;
+import com.demure.demure_auth.entity.DTO;
 import com.demure.demure_auth.entity.User;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
@@ -13,22 +13,22 @@ public class UserMapper {
         this.userFactory = userFactory;
     }
 
-    public UserDto toUserDto(@NotNull User user) {
+    public DTO toUserDto(@NotNull User user) {
         return new
-                UserDto(user.getId(),
+                DTO(user.getId(),
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
                 user.getRole());
     }
 
-    public User toUser(@NotNull UserDto userDto) {
-        User user = userFactory.createUser(userDto.role());
-        user.setId(userDto.userId());
-        user.setUsername(userDto.username());
-        user.setEmail(userDto.email());
-        user.setPassword(userDto.password());
-        user.setRole(userDto.role());
+    public User toUser(@NotNull DTO DTO) {
+        User user = userFactory.createUser(DTO.role());
+        user.setId(DTO.userId());
+        user.setUsername(DTO.username());
+        user.setEmail(DTO.email());
+        user.setPassword(DTO.password());
+        user.setRole(DTO.role());
         return user;
     }
 }

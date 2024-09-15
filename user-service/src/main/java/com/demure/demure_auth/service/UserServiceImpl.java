@@ -1,6 +1,6 @@
 package com.demure.demure_auth.service;
 
-import com.demure.demure_auth.entity.UserDto;
+import com.demure.demure_auth.entity.DTO;
 import com.demure.demure_auth.entity.User;
 import com.demure.demure_auth.utility.UserMapper;
 import com.demure.demure_auth.repository.UserRepository;
@@ -21,9 +21,9 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
 
     @Override
-    public UserDto registerUser(UserDto userDto) {
-        User user = userMapper.toUser(userDto);
-        user.setPassword(passwordEncoder.encode(userDto.password()));
+    public DTO registerUser(DTO DTO) {
+        User user = userMapper.toUser(DTO);
+        user.setPassword(passwordEncoder.encode(DTO.password()));
         userRepository.save(user);
         return userMapper.toUserDto(user);
     }
@@ -37,13 +37,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUserById(Long userId) {
+    public DTO getUserById(Long userId) {
         Optional<User> userOptional = userRepository.findById(userId);
         return userOptional.map(userMapper::toUserDto).orElse(null);
     }
 
     @Override
-    public UserDto getCurrentUser() {
+    public DTO getCurrentUser() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found"));

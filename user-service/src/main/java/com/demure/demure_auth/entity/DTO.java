@@ -1,13 +1,13 @@
 package com.demure.demure_auth.entity;
 
-public record UserDto(
+public record DTO(
         Long userId,
         String username,
         String email,
         String password,
         Role role
 ) {
-    public UserDto {
+    public DTO {
         if (userId != null && userId <= 0) {
             throw new IllegalArgumentException("User ID cannot be zero or negative");
         }

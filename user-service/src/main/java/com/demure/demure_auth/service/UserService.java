@@ -1,10 +1,10 @@
 package com.demure.demure_auth.service;
 
-import com.demure.demure_auth.entity.UserDto;
+import com.demure.demure_auth.entity.DTO;
 
 public interface UserService {
-    UserDto registerUser(UserDto userDto);
+    DTO registerUser(DTO DTO);
     String authenticate(String username, String password);
-    UserDto getUserById(Long userId);
-    UserDto getCurrentUser();
+    DTO getUserById(Long userId);
+    DTO getCurrentUser();
 }

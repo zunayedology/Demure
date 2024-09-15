@@ -1,7 +1,7 @@
 package com.demure.demure_auth.controller;
 
 import com.demure.demure_auth.auth.TokenUtil;
-import com.demure.demure_auth.entity.UserDto;
+import com.demure.demure_auth.entity.DTO;
 import com.demure.demure_auth.service.LogoutService;
 import com.demure.demure_auth.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,14 +18,14 @@ public class AuthController {
     private final TokenUtil tokenUtil;
 
     @PostMapping("/register")
-    public ResponseEntity<UserDto> registerUser(@RequestBody UserDto userDto) {
-        UserDto registeredUser = userService.registerUser(userDto);
+    public ResponseEntity<DTO> registerUser(@RequestBody DTO DTO) {
+        DTO registeredUser = userService.registerUser(DTO);
         return ResponseEntity.ok(registeredUser);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> authenticate(@RequestBody UserDto userDto) {
-        String token = userService.authenticate(userDto.username(), userDto.password());
+    public ResponseEntity<String> authenticate(@RequestBody DTO DTO) {
+        String token = userService.authenticate(DTO.username(), DTO.password());
         if (token == null) {
             return ResponseEntity.badRequest().build();
         } else {
@@ -34,8 +34,8 @@ public class AuthController {
     }
 
     @GetMapping("/user")
-    public ResponseEntity<UserDto> getCurrentUser() {
-        UserDto currentUser = userService.getCurrentUser();
+    public ResponseEntity<DTO> getCurrentUser() {
+        DTO currentUser = userService.getCurrentUser();
         return ResponseEntity.ok(currentUser);
     }
 
