@@ -1,18 +1,13 @@
 from fastapi import FastAPI
-import asyncio
-from app.routes import websocket, analytics
-from app.services.batch_processor import start_batch_processing
+from app.api import health, batch, analytics
 
 app = FastAPI()
 
-# Include routes
-app.include_router(websocket.router, prefix="/ws")
-app.include_router(analytics.router, prefix="/analytics")
+# Register routes
+app.include_router(health.router)
+app.include_router(batch.router)
+app.include_router(analytics.router)
 
 @app.get("/")
 async def root():
-    return {"message": "Health and Analytics Service Running"}
-
-@app.on_event("startup")
-async def startup():
-    await asyncio.create_task(start_batch_processing())
+    return {"message": "Health and Analytics Service is running"}
