@@ -9,7 +9,7 @@
 ### Technologies Used
 
 - **Back-End Microservices**:  
-  - **User Management Service**: `Java`, `Spring Boot`, `PostgreSQL`, `JWT`, `Bcrypt`, `Redis`
+  - **User Management Service**: `Java`, `Spring Boot`, `PostgreSQL`, `JWT`
   - **Station Management Service**: `TypeScript`, `Node`, `Neo4j`, `GraphQL`
   - **Ride Management Service**: `Go`, `Redis`, `Kafka`
   - **Health & Analytics Service**: `Python`, `FastAPI`, `MongoDB`
