@@ -10,11 +10,10 @@
 
 - **Back-End Microservices**:  
   - **User Management Service**: `Java`, `Spring Boot`, `PostgreSQL`, `JWT`, `Bcrypt`, `Redis`
+  - **Station Management Service**: `TypeScript`, `Node`, `Neo4j`, `GraphQL`
   - **Ride Management Service**: `Go`, `Redis`, `Kafka`
-  - **Station Management Service**: `TypeScript`, `Node`, `Express`, `Neo4j`, `AuraDB`, `GraphQL`, `Apollo`
-  - **Health & Analytics Service**: `Python`, `FastAPI`, `PostgreSQL`, `TimescaleDB`
+  - **Health & Analytics Service**: `Python`, `FastAPI`, `MongoDB`
   - **Billing Service**: `JavaScript`, `Nest`, `MySQL`, `Stripe API`
-  - **Notification Service**: `Python`, `FastAPI`, `Kafka`, `Firebase`
   
 - **Front-End**:
   - `React` (for user interface)
