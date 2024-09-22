@@ -23,6 +23,7 @@ export const typeDefs = gql`
       longitude: Float!
       address: String!
     ): Station
+
     updateStation(
       id: ID!
       name: String
@@ -30,6 +31,7 @@ export const typeDefs = gql`
       longitude: Float
       address: String
     ): Station
+
     deleteStation(id: ID!): String
   }
 `;
